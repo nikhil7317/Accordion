@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import { questions } from './components/Api';
+import MyAccordion from './components/MyAccordion';
+
 
 function App() {
+
+  const[data, setData] = useState(questions)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+      <div className='main_div'>
+        <div className='center_div'> 
+        <h1 className='heading'>React Interview Questions</h1>
+      {
+        data.map((curElem)=>{
+          const{id} = curElem
+          return <MyAccordion key={id}{...curElem}/>
+        })
+      }
+        </div>
+      </div>
+    
   );
 }
 
