@@ -11,7 +11,7 @@ function MyAccordion(props){
         <div >
             
             <h1 align="right">{props.question}</h1>
-            <p align="left" onClick={showData}>➕</p>
+            <p align="left" onClick={showData}>{show ? "➖": "➕"}</p>
             {show && <p>{props.answer}</p>}
         </div>
         
